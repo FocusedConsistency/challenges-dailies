@@ -7,7 +7,7 @@ def check_eligibility(athlete_weights, sled_weight):
     max_weights = {
         1: 247,
         2: 390,
-        4: 640
+        4: 630
     }
     athlete_count = len(athlete_weights)
     if sled_weight < min_sled_weights[athlete_count]:
