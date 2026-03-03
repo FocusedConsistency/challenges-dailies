@@ -1,25 +1,24 @@
 def count_perfect_cubes(a, b):
     mini = min(a, b)
     maxi = max(a, b)
+
+    i = round(abs(mini) ** (1/3))
+    if mini < 0:    
+        i *= -1
+    i -= 1
+
     count = 0
-    i = 0
-    cube = 0
-    while cube < maxi:
+    while True:
         cube = i * i * i
-        if mini <= cube <= maxi:
+        if cube > maxi:
+            break
+        if cube >= mini:
             count += 1
         i += 1
-
-    if mini < 0:
-        i = -1
-        cube = 0
-        while cube > mini:
-            cube = i * i * i
-            if cube >= mini:
-                count += 1
-            i -= 1
-
     return count
 
-count_perfect_cubes(9214, -8127)
-# 41
+print(count_perfect_cubes(-1, 0))  # 2
+print(count_perfect_cubes(0, 0))  # 1
+print(count_perfect_cubes(0, 1))  # 2
+print(count_perfect_cubes(-1, 1))  # 3
+print(count_perfect_cubes(9214, -8127))  # 41
