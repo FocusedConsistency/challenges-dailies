@@ -22,3 +22,5 @@ print(count_perfect_cubes(0, 0))  # 1
 print(count_perfect_cubes(0, 1))  # 2
 print(count_perfect_cubes(-1, 1))  # 3
 print(count_perfect_cubes(9214, -8127))  # 41
+print(count_perfect_cubes(10**18, 10))  # 999998
+print(count_perfect_cubes(-10**18, 10**18))  # 2000001
