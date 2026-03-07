@@ -20,16 +20,14 @@ def navigate_trail(map):
         map_li.append(list(row))
 
     result = []
-    fin = False
-    count = 0
 
-    while map_li[curr_pos[0]][curr_pos[1]] != "G" and fin == False and count < 100:
+    while map_li[curr_pos[0]][curr_pos[1]] != "G":
         for move in moves:
             new_pos = (curr_pos[0] + move[0], curr_pos[1] + move[1])
             if is_valid_move(new_pos):
                 if map_li[new_pos[0]][new_pos[1]] == "G":
                     result.append(moves[move])
-                    fin = True
+                    curr_pos = new_pos
                     break
                 if map_li[new_pos[0]][new_pos[1]] == "T":
                     result.append(moves[move])
@@ -37,7 +35,6 @@ def navigate_trail(map):
                     map_li[new_pos[0]][new_pos[1]] = "C"
                     curr_pos = new_pos
                     break
-        count += 1
     return ''.join(result)
 
 navigate_trail(["TTTTTTT-", "T-----T-", "T-----T-", "TTTT--TG", "---C----"])
