@@ -13,7 +13,7 @@ def invert_matrix(matrix):
 
     val_2 = find_second_value()
 
-    # All values are the same, no need to invert
+    # If all values are the same, there is no need to invert
     if val_2 is None:
         return matrix
 
