@@ -1,21 +1,23 @@
 def truncate_text(s):
-    widths = [(".", 1), ("ilI", 1), ("fjrt", 2), (" ", 2), ("abcdeghkmnopqrstuvwxyzJL", 3), ("ABCDEFGHKMNOPQRSTUVWXYZ", 4)]
-    def check_width(char):
-        for width in widths:
-            if char in width[0]:
-                return width[1]
-        return 0
+    widths = {
+    **dict.fromkeys('.', 1),
+    **dict.fromkeys('ilI', 1),
+    **dict.fromkeys('fjrt ', 2),
+    **dict.fromkeys('abcdeghkmnopqsuvwxyzJL', 3),
+    **dict.fromkeys('ABCDEFGHKMNOPQRSTUVWXYZ', 4)
+}
 
     total_width = 0
-    new_s = []
+    result = []
+    truncated = ""
     for char in s:
-        total_width += check_width(char)
-        if total_width > 47:
-            new_s.append("...")
-            return ''.join(new_s)
-        new_s.append(char)
+        total_width += widths.get(char, 0)
+        print(total_width)
+        if total_width > 50:
+            return truncated
+        elif total_width > 47:
+            if not truncated:
+                truncated = ''.join(result) + "..."
+        result.append(char)
 
-    return ''.join(new_s)
-
-truncate_text("THE LOUD BRIGHT BIRD")
-# "THE LOUD BRIG..."
+    return ''.join(result)
