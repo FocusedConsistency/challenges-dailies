@@ -1,6 +1,6 @@
 def is_valid_isbn10(s):
     digits = ''.join(s.split("-"))
-    if len(s) != 10:
+    if len(digits) != 10:
         return False
 
     total = 0
