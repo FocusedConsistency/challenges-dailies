@@ -5,4 +5,5 @@ def get_initials(name):
         initials.append(n[0])
     return ".".join(initials) + "."
 
-get_initials("Tommy Millwood")
+get_initials("Dorothy Vera Clump Haverstock Norris")
+# "D.V.C.H.N."
